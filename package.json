@@ -1,0 +1,26 @@
+{
+  "name": "donateweb3",
+  "version": "1.0.0",
+  "description": "blockchain",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npx hardhat node\" \"npx hardhat run scripts/deploy.js --network localhost\" \"node api/index.js\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shahwul",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "concurrently": "^9.1.2",
+    "hardhat": "^2.24.0",
+    "hardhat-abi-exporter": "^2.11.0"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "ethers": "^6.14.0",
+    "express": "^5.1.0",
+    "tailwindcss": "^4.1.6"
+  }
+}

@@ -1,0 +1,8 @@
+[
+  "constructor()",
+  "event RateUpdated(uint256)",
+  "function admin() view returns (address)",
+  "function ethToIdr() view returns (uint256)",
+  "function getRate() view returns (uint256)",
+  "function updateRate(uint256)"
+]

@@ -1,0 +1,7 @@
+[
+  "constructor()",
+  "event Donated(address indexed,string,uint256)",
+  "function donate(string) payable",
+  "function owner() view returns (address)",
+  "function withdraw()"
+]
