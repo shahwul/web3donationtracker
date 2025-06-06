@@ -4,7 +4,7 @@
   "description": "blockchain",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npx hardhat node\" \"npx hardhat run scripts/deploy.js --network localhost\" \"node api/index.js\" ",
+    "dev": "concurrently \"npx hardhat node\" \"npx hardhat run scripts/deploy.js --network holesky\" \"node api/index.js\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "shahwul",

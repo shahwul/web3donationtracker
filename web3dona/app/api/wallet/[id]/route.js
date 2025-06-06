@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 import { ethers } from 'ethers';
 
 // Ganti sesuai dengan RPC provider (Hardhat / testnet / mainnet)
-const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
+// const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");
+const provider = new ethers.JsonRpcProvider("https://ethereum-holesky-rpc.publicnode.com");
 
 export async function GET(request, { params }) {
   const { id } = await params;

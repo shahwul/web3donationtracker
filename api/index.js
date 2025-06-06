@@ -10,7 +10,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // RPC Hardhat
-const provider = new ethers.JsonRpcProvider('http://127.0.0.1:8545');
+// const provider = new ethers.JsonRpcProvider('http://127.0.0.1:8545');
+const provider = new ethers.JsonRpcProvider('https://ethereum-holesky.publicnode.com');
 
 // Smart Contract
 const contractAddress = process.env.CONTRACT_ADDRESS;
@@ -92,6 +93,33 @@ app.post('/update-rate', async (req, res) => {
       status: 'success',
       txHash: tx.hash,
       ethPrice: ethPrice,
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+// post withdraw
+app.post('/withdraw', async (req, res) => {
+  try {
+    const { private_key } = req.body;
+
+    if (!private_key) {
+      return res.status(400).json({ status: 'error', message: 'Private key is required' });
+    }
+
+    // Buat signer dari private_key user
+    const signer = new ethers.Wallet(private_key, provider);
+    const donationContract = new ethers.Contract(contractAddress, abiDonation, signer);
+
+    const tx = await donationContract.withdraw();
+    await tx.wait();
+
+    res.json({
+      status: 'success',
+      txHash: tx.hash,
     });
 
   } catch (err) {
